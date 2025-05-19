@@ -36,4 +36,3 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-interaction
-      #Agregar el paso de migración
