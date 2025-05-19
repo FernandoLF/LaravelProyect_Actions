@@ -25,5 +25,8 @@ jobs:
           extensions: mbstring, bcmath, pdo, pdo_mysql
           ini-values: post_max_size=256M, upload_max_filesize=256M
 
+      - name: Update Composer dependencies
+        run: composer update --with-all-dependencies
+
       - name: Install dependencies
         run: composer install --no-interaction
