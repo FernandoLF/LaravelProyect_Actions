@@ -4,8 +4,13 @@ require __DIR__.'/../vendor/autoload.php';
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Application;
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = new Application(
+    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
+);
+
+// Aquí puedes registrar bindings adicionales si lo necesitas
 
 $kernel = $app->make(Kernel::class);
 
