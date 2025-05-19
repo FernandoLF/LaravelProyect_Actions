@@ -1,0 +1,25 @@
+The directory `/my-laravel-app/my-laravel-app/database/seeders` is intended to contain seeder classes for populating the database with initial data. Since you requested the contents for this directory, I will create a basic seeder file named `DatabaseSeeder.php` that can be used to call other seeders.
+
+Here are the contents for the file:
+
+/my-laravel-app/my-laravel-app/database/seeders/DatabaseSeeder.php
+
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        // Call other seeders here
+        // Example: $this->call(UserSeeder::class);
+    }
+}

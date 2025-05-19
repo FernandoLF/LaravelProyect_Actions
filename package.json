@@ -1,0 +1,27 @@
+{
+  "name": "my-laravel-app",
+  "version": "1.0.0",
+  "description": "A Laravel application",
+  "main": "public/index.php",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "dependencies": {
+    "laravel-mix": "^6.0",
+    "axios": "^0.21",
+    "vue": "^2.6"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0",
+    "laravel-mix": "^6.0",
+    "sass": "^1.32",
+    "sass-loader": "^10.1"
+  },
+  "license": "MIT"
+}

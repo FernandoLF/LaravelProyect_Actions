@@ -1,0 +1,20 @@
+The directory /my-laravel-app/my-laravel-app/tests/Feature is intended for feature tests, which typically contain test classes that extend the `TestCase` class provided by Laravel. Below is a sample content for a feature test file, which you can name `ExampleTest.php`.
+
+File path: /my-laravel-app/my-laravel-app/tests/Feature/ExampleTest.php
+
+File contents:
+<?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    public function test_example()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+}
