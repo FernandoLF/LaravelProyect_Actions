@@ -12,12 +12,4 @@ $app = new Application(
 
 // Aquí puedes registrar bindings adicionales si lo necesitas
 
-$kernel = $app->make(Kernel::class);
-
-$request = Request::capture();
-
-$response = $kernel->handle($request);
-
-$response->send();
-
-$kernel->terminate($request, $response);
+return $app;
