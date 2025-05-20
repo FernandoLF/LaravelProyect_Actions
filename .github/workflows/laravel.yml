@@ -5,6 +5,11 @@ on: [push]
 jobs:
   laravel-tests:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: [7.4, 8.0, 8.2]
+
     services:
       mysql:
         image: mysql:8.0
@@ -21,9 +26,15 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: ${{ matrix.php-version }}
+          #php-version: '8.2'
           extensions: mbstring, bcmath, pdo, pdo_mysql
           ini-values: post_max_size=256M, upload_max_filesize=256M
+
+      - name: Run script
+        run: |
+          echo "PHP VERSION ${{ matrix.php-version }}"
+          php -v
 
       - name: Ensure storage and cache directories exist
         run: |
@@ -31,13 +42,16 @@ jobs:
           mkdir -p bootstrap/cache
           chmod -R 777 storage bootstrap/cache
 
-      - name: Update Composer dependencies
-        id: composer-update
-        run: composer update --with-all-dependencies
+      #- name: Update Composer dependencies
+      #  id: composer-update
+      #  run: composer update --with-all-dependencies
 
       - name: Install dependencies
-        if: steps.composer-update.outcome == 'success'
+        #if: steps.composer-update.outcome == 'success'
         run: composer install --no-interaction
+
+      - name: Set App
+        run: cp .env.example .env 
 
       - name: Clear Laravel caches
         run: |
@@ -47,10 +61,7 @@ jobs:
           php artisan view:clear
 
       - name: Cache Laravel config
-        run: php artisan config:cache
-      
-      - name: Set App
-        run: cp .env.example .env 
+        run: php artisan config:cache      
 
       - name: Generate App Key
         run: php artisan key:generate
