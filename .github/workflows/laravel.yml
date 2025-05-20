@@ -36,4 +36,14 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-interaction
-        #
+
+      - name: Clear Laravel caches
+        run: |
+          php artisan config:clear
+          php artisan cache:clear
+          php artisan route:clear
+          php artisan view:clear
+
+      - name: Cache Laravel config
+        run: php artisan config:cache
+      
