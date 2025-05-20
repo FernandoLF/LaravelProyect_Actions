@@ -47,3 +47,11 @@ jobs:
       - name: Cache Laravel config
         run: php artisan config:cache
       
+      - name: Set App
+        run: cp .env.example .env 
+
+      - name: Generate App Key
+        run: php artisan key:generate
+
+      - name: Run test
+        run: vendor/bin/phpunit
