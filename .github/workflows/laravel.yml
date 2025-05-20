@@ -1,6 +1,13 @@
 name: Laravel CI
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'Run tests'
+        required: true
+        default: 'true'
+
 #on: [push]
 
 jobs:
