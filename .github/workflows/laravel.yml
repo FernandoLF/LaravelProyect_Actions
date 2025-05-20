@@ -32,9 +32,11 @@ jobs:
           chmod -R 777 storage bootstrap/cache
 
       - name: Update Composer dependencies
+        id: composer-update
         run: composer update --with-all-dependencies
 
       - name: Install dependencies
+        if: steps.composer-update.outcome == 'success'
         run: composer install --no-interaction
 
       - name: Clear Laravel caches
