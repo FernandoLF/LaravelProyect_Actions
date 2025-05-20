@@ -63,6 +63,7 @@ jobs:
 
       - name: Artifacts
         uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: laravel-tests
           path: storage/logs
