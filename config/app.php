@@ -35,6 +35,7 @@ return [
         Illuminate\Routing\RoutingServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
 
         /*
          * Package Service Providers...
