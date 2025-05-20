@@ -60,3 +60,9 @@ jobs:
 
       - name: deploy
         run: ls
+
+      - name: Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: laravel-tests
+          path: storage/logs
